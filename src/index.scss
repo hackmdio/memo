@@ -3,6 +3,11 @@
   overflow: hidden;
 }
 
+img {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .block1 {
   background-color: #333;
 }
@@ -10,6 +15,7 @@
 .logo {
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 .block2 {
@@ -29,4 +35,37 @@
   width: 100%;
   max-width: 410px;
   margin: 0 auto;
+}
+
+.navbar {
+  width: 100%;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  position: fixed;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 50px;
+
+  a {
+    display: contents;
+
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: #D1D1D1;
+      cursor: pointer;
+    }
+  }
+}
+
+.footer {
+  background-color: #333;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+
+  hr {
+    color: #c7c7c7;
+  }
 }
