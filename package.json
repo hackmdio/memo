@@ -1,0 +1,19 @@
+{
+  "name": "memo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.pug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "parcel": "^1.12.3",
+    "pug": "^2.0.3",
+    "sass": "^1.17.3"
+  }
+}
