@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.pug"
+    "dev": "parcel src/index.pug",
+    "build": "parcel build src/index.pug",
+    "predeploy": "rm -rf dist && parcel build src/index.pug --public-url /memo",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "gh-pages": "^2.0.1",
     "parcel": "^1.12.3",
     "pug": "^2.0.3",
     "sass": "^1.17.3"
