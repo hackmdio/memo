@@ -9,7 +9,8 @@ img {
 }
 
 .block1 {
-  background-color: #333;
+  background: rgb(77,77,77);
+  background: radial-gradient(circle, rgba(77,77,77,1) 0%, rgba(0,0,0,1) 56%, rgba(2,0,36,1) 100%);
 }
 
 .logo {
@@ -44,7 +45,7 @@ img {
   font-weight: 600;
   position: fixed;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #333;
   min-height: 50px;
 
   a {
