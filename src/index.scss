@@ -30,6 +30,8 @@ img {
 }
 
 .block3 {
+  background-color: #0c0c0c;
+
   position: relative;
 
   & > * {
@@ -44,6 +46,10 @@ img {
     width: 100%;
     height: 100%;
   }
+}
+
+.new-design {
+  background-color: #242424;
 }
 
 .block4 {
