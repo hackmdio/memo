@@ -42,12 +42,12 @@ var chart = new Chart(ctx, {
             label: 'MemoMD',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            data: [100]
+            data: [150]
         }, {
           label: 'HackMD',
           backgroundColor: 'rgb(255, 99, 132))',
           borderColor: 'rgb(255, 99, 132))',
-          data: [150]
+          data: [100]
       }]
     },
 
@@ -75,12 +75,12 @@ var chart = new Chart(ctx, {
             label: 'MemoMD',
             backgroundColor: '#1c64d1',
             borderColor: '#1c64d1',
-            data: [5]
+            data: [0.0001]
         }, {
           label: 'HackMD',
           backgroundColor: '#1c64d1)',
           borderColor: '#1c64d1)',
-          data: [0.0001]
+          data: [5]
       }]
     },
 
