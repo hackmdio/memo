@@ -1,0 +1,73 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memo-landingpage-memo-deploy
+  namespace: memo
+  labels:
+    app.kubernetes.io/name: memo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: memo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: memo
+    spec:
+      containers:
+        - name: memo-landing-page-nginx
+          image: "asia.gcr.io/nimble-repeater-208016/memo:master"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: memo-landingpage-memo-svc
+  namespace: memo
+  labels:
+    app.kubernetes.io/name: memo
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: memo
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: memo-landingpage-memo-ingress
+  namespace: memo
+  labels:
+    app.kubernetes.io/name: memo
+  annotations:
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod-http
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  backend:
+    serviceName: memo-landingpage-memo-svc
+    servicePort: 80
+  rules:
+    - host: "memo.hackmd.io"
+  tls:
+    - secretName: memo-hackmd-io-tls
+      hosts:
+        - "memo.hackmd.io"
