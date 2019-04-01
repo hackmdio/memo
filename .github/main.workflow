@@ -81,5 +81,5 @@ action "Send Message to slack" {
   uses = "Ilshidur/action-slack@4f4215e15353edafdc6d9933c71799e3eb4db61c"
   needs = ["Verify Deployment"]
   secrets = ["SLACK_WEBHOOK"]
-  args = ["MemoMD build success with commit $GITHUB_SHA"]
+  args = ["MemoMD build success with commit {{ GITHUB_SHA }} ({{ EVENT_PAYLOAD.commits[EVENT_PAYLOAD.commits.length-1].message }})"]
 }
