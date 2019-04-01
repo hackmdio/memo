@@ -2,7 +2,7 @@ workflow "Build and deploy on push" {
   on = "push"
   resolves = [
     "Setup docker credential",
-    "Verify Deployment",
+    "Send Message to slack",
   ]
 }
 
@@ -75,4 +75,11 @@ action "Verify Deployment" {
   uses = "docker://gcr.io/cloud-builders/kubectl"
   needs = ["Deploy to k8s"]
   args = ["-n", "memo", "rollout", "status", "deployment/memo-landingpage-memo-deploy"]
+}
+
+action "Send Message to slack" {
+  uses = "Ilshidur/action-slack@4f4215e15353edafdc6d9933c71799e3eb4db61c"
+  needs = ["Verify Deployment"]
+  secrets = ["SLACK_WEBHOOK"]
+  args = ["MemoMD build success with commit $GITHUB_SHA"]
 }
