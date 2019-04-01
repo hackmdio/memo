@@ -25,7 +25,7 @@ action "Login gcloud" {
 
 action "Tag for GCR" {
   uses = "actions/docker/tag@8cdf801b322af5f369e00d85e9cf3a7122f49108"
-  args = ["memo:master", "asia.gcr.io/$PROJECT_ID/$APP_NAME:master"]
+  args = ["memo:master", "asia.gcr.io/$PROJECT_ID/$APP_NAME"]
   env = {
     PROJECT_ID = "nimble-repeater-208016"
     APP_NAME = "memo"
