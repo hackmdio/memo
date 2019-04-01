@@ -67,8 +67,8 @@ action "Setup kubectl" {
 action "Deploy to k8s" {
   uses = "docker://gcr.io/cloud-builders/kubectl"
   needs = ["Setup kubectl"]
-  runs = "kubectl -n memo"
-  args = ["patch deployment memo-landingpage-memo-deploy -p '{\"spec\": {\"template\": {\"metadata\": {\"annotations\": {\"deploy-sha\": \"'${SHORT_REF}'\"}}}}}'"]
+  runs = "sh -l -c"
+  args = ["kubectl -n memo patch deployment memo-landingpage-memo-deploy -p '{\"spec\": {\"template\": {\"metadata\": {\"annotations\": {\"deploy-sha\": \"'${SHORT_REF}'\"}}}}}'"]
 }
 
 action "Verify Deployment" {
