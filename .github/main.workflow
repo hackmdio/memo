@@ -45,12 +45,12 @@ action "Push docker image to GCR" {
     "Setup docker credential",
     "Tag for GCR",
   ]
-  runs = "sh -c"
+  runs = "sh -c -l"
   env = {
     PROJECT_ID = "nimble-repeater-208016"
     APP_NAME = "memo"
   }
-  args = ["docker", "push", "asia.gcr.io/$PROJECT_ID/$APP_NAME:master"]
+  args = ["docker push asia.gcr.io/$PROJECT_ID/$APP_NAME:master"]
 }
 
 action "Setup kubectl" {
@@ -68,7 +68,7 @@ action "Deploy to k8s" {
   uses = "docker://gcr.io/cloud-builders/kubectl"
   needs = ["Setup kubectl"]
   runs = "sh -l -c"
-  args = ["echo ${GITHUB_SHA} && SHORT_REF=$(echo ${GITHUB_SHA} | head -c7) && echo ${SHORT_REF} && kubectl -n memo patch deployment memo-landingpage-memo-deploy -p '{\"spec\": {\"template\": {\"metadata\": {\"annotations\": {\"deploy-sha\": \"${SHORT_REF}\" }}}}}'"]
+  args = ["echo ${GITHUB_SHA} && SHORT_REF=$(echo ${GITHUB_SHA} | head -c7) && echo ${SHORT_REF} && kubectl -n memo patch deployment memo-landingpage-memo-deploy -p '{\"spec\": {\"template\": {\"metadata\": {\"annotations\": {\"deploy-sha\": \'${SHORT_REF}\' }}}}}'"]
 }
 
 action "Verify Deployment" {
