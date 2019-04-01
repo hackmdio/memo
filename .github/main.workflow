@@ -74,5 +74,5 @@ action "Deploy to k8s" {
 action "Verify Deployment" {
   uses = "docker://gcr.io/cloud-builders/kubectl"
   needs = ["Deploy to k8s"]
-  args = ["-n memo rollout status deployment/memo-landingpage-memo-deploy"]
+  args = ["-n", "memo", "rollout", "status", "deployment/memo-landingpage-memo-deploy"]
 }
