@@ -1,5 +1,7 @@
 html, body {
   font-family: -apple-system,system-ui,BlinkMacSystemFont, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體", DFKai-SB, "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+  overflow-x: hidden;
 }
 
 .block2, .block3, .block4 {
@@ -63,7 +65,12 @@ img {
   background-size: cover;
   background-position: bottom;
 
+  & > * {
+    z-index: 2;
+  }
+
   .overlay {
+    z-index: 1;
     background: rgb(20,20,20);
     background: linear-gradient(0deg, rgba(20,20,20,0.9122023809523809) 0%, rgba(223,223,223,0) 100%);
   }
@@ -77,6 +84,7 @@ img {
 }
 
 .navbar {
+  z-index: 999999;
   width: 100%;
   color: white;
   font-family: 'Source Sans Pro', sans-serif;

@@ -1,3 +1,17 @@
-.vw-100.vh-100.text-center.align-items-center.d-flex.justify-content-center.flex-column.block-cta.text-white
+.vw-100.vh-100.text-center.align-items-center.d-flex.flex-column.block-cta.text-white
   .position-absolute.vw-100.vh-100.overlay
-  h2(style="z-index: 1;") 立即分享參加抽獎
+
+  .d-flex.pt-5.pb-5.flex-column
+    h2 填寫問卷分享抽出 MemoMD
+    h4 限量 50 份！
+    a(href="https://forms.gle/8MXWCxnocaWbGEgE8", target="_blank")
+      button.btn.btn-success 手刀填寫問卷
+
+    .share-buttons.pt-3.pb-3.mt-3.d-flex.justify-content-around
+
+      .fb-share-button(data-href='https://memo.hackmd.io', data-layout='button', data-size='large')
+        a.fb-xfbml-parse-ignore(target="_blank", href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmemo.hackmd.io%2F&amp;src=sdkpreparse")
+          | 分享
+
+      a.twitter-share-button(href="https://twitter.com/intent/tweet?text=Introducing%20MemoMD%20The%20realtime%20collaboration%20memo%20notebook", data-size="large")
+        | Tweet
