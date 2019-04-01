@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    meta(property="og:url",           content="https://memo.hackmd.io")
+    meta(property="og:type",          content="website")
+    meta(property="og:title",         content="Announcing MemoMD")
+    meta(property="og:description",   content="Redefining writing")
+    meta(property="og:image",         content="https://i.imgur.com/ofZ3KOX.png")
+
+    title Announcing MemoMD
+
+    include headers
+
+  body
+    #fb-root
+    script(async, defer, crossorigin="anonymous", src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2&appId=539634776444206&autoLogAppEvents=1")
+
+    include nav_en
+    include block1_en
+    include demo_en
+    include block2_en
+    include block3_en
+    include charts_en
+    include block4_en
+    include cta_en
+    include footer
+
+    include scripts
